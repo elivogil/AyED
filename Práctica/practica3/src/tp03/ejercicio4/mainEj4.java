@@ -18,19 +18,19 @@ public class mainEj4 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        RedBinariaLlena<Integer>a=new RedBinariaLlena(1,1);
-        RedBinariaLlena<Integer>aux=new RedBinariaLlena(2,8);
-        a.agregarHijoIzquierdo(aux);
-        aux=new RedBinariaLlena(5,5);
-        a.agregarHijoDerecho(aux);
-        aux=new RedBinariaLlena(3,5);
-        a.getHijoIzquierdo().agregarHijoIzquierdo(aux);
-        aux=new RedBinariaLlena(4,4);
-        a.getHijoIzquierdo().agregarHijoDerecho(aux);
-        aux=new RedBinariaLlena(6,6);
-        a.getHijoDerecho().agregarHijoIzquierdo(aux);
-        aux=new RedBinariaLlena(7,1);
-        a.getHijoDerecho().agregarHijoDerecho(aux);
+        RedBinariaLlena<Integer>a=new RedBinariaLlena(1);
+        ArbolBinario<Integer>aux=new ArbolBinario<>(2);
+        a.getArb().agregarHijoIzquierdo(aux);
+        aux=new ArbolBinario<>(5);
+        a.getArb().agregarHijoDerecho(aux);
+        aux=new ArbolBinario<>(3);
+        a.getArb().getHijoIzquierdo().agregarHijoIzquierdo(aux);
+        aux=new ArbolBinario<>(4);
+        a.getArb().getHijoIzquierdo().agregarHijoDerecho(aux);
+        aux=new ArbolBinario<>(6);
+        a.getArb().getHijoDerecho().agregarHijoIzquierdo(aux);
+        aux=new ArbolBinario<>(7);
+        a.getArb().getHijoDerecho().agregarHijoDerecho(aux);
         System.out.println(a.retardoReenvio());
     }
     

@@ -11,28 +11,35 @@ import tp03.ejercicio1.ArbolBinario;
  *
  * @author gonza
  */
-public class RedBinariaLlena<T>extends ArbolBinario<T>{
+public class RedBinariaLlena<T>{
     
-    public RedBinariaLlena(T dato,int retardo) {
-        super(dato,retardo);
+    private ArbolBinario<T>arb;
+    
+    public RedBinariaLlena(T dato) {
+        this.arb=new ArbolBinario(dato);
     }
- 
+
+    public ArbolBinario<T> getArb() {
+        return arb;
+    }
+    
+    
     
     private int retardoReenvio(ArbolBinario arb){
         if(arb.esVacio()){
             return 0;
         }else{
             if(arb.esHoja()){
-                return arb.getRetardo();
+                return (int)arb.getDato();
             }else{
-                return arb.getRetardo() + Math.max(retardoReenvio(arb.getHijoIzquierdo()),retardoReenvio(arb.getHijoDerecho()));
+                return (int)arb.getDato() + Math.max(retardoReenvio(arb.getHijoIzquierdo()),retardoReenvio(arb.getHijoDerecho()));
             }
         }
         
     }
         
     public int retardoReenvio(){
-        return retardoReenvio(this);
+        return retardoReenvio(this.getArb());
     }
     
     

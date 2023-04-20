@@ -6,8 +6,6 @@ public class ArbolBinario<T> {
 	private T dato;
 	private ArbolBinario<T> hijoIzquierdo;   
 	private ArbolBinario<T> hijoDerecho;
-        private int retardo;
-
 	
 	public ArbolBinario() {
 		super();
@@ -18,11 +16,6 @@ public class ArbolBinario<T> {
         }
 
         
-	public ArbolBinario(T dato,int retardo) {
-		this.dato = dato;
-                this.retardo=retardo;
-	}
-
 	/*
 	 * getters y setters
 	 * 
@@ -48,14 +41,6 @@ public class ArbolBinario<T> {
 
 	}
 
-        public int getRetardo() {
-            return retardo;
-        }
-
-        public void setRetardo(int retardo) {
-            this.retardo = retardo;
-        }
-        
 	public void agregarHijoIzquierdo(ArbolBinario<T> hijo) {
 		this.hijoIzquierdo = hijo;
 	}

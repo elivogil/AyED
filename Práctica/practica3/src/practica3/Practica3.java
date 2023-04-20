@@ -32,7 +32,7 @@ public class Practica3 {
         aux=new ArbolBinario(6);
         a.getHijoDerecho().agregarHijoIzquierdo(aux);
         a.entreNiveles(2,9);
-        /*imprimirArb(a);
+        imprimirArb(a);
         ContadorArbol cont=new ContadorArbol(a);
         ListaEnlazadaGenerica lis1=new ListaEnlazadaGenerica();
         ListaEnlazadaGenerica lis2=new ListaEnlazadaGenerica();
@@ -41,7 +41,7 @@ public class Practica3 {
         System.out.println("Lista 1\n");
         imprimirLista(lis1);
         System.out.println("Lista 2\n");
-        imprimirLista(lis2);*/
+        imprimirLista(lis2);
         
         
     }

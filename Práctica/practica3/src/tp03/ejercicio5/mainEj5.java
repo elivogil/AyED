@@ -30,7 +30,7 @@ public class mainEj5 {
         aux=new ArbolBinario(6);
         a.getHijoDerecho().agregarHijoIzquierdo(aux);
         ProfundidadDeArbolBinario arb=new ProfundidadDeArbolBinario(a);
-        System.out.println(arb.sumaElementosProfundidad(7));
+        System.out.println(arb.sumaElementosProfundidad(2));
     }
     
 }

@@ -5,6 +5,7 @@
  */
 package tp03.ejercicio5;
 
+import tp02.ejercicio3.ColaGenerica;
 import tp03.ejercicio1.ArbolBinario;
 
 /**
@@ -19,23 +20,32 @@ public class ProfundidadDeArbolBinario {
     }
     
     
-    private int profundidad(int p,ArbolBinario arb){
-        int aux=0;
-        if((!arb.esVacio())&&(p!=-1)){
-            aux+=(int)arb.getDato();
-            if(arb.tieneHijoIzquierdo()){
-                aux+=profundidad(p-1, arb.getHijoIzquierdo());
-            }
-            if(arb.tieneHijoDerecho()){
-                aux+=profundidad(p-1, arb.getHijoDerecho());
-            }
-        }
-        return aux;
-        
-    }
-    
-    
-    public int sumaElementosProfundidad(int p){
-        return profundidad(p, arb);
-    }
+    public int sumaElementosProfundidad(int n){
+            int cant=0;
+            if(n>=0){
+                int aux=0;
+                ArbolBinario<Integer>arbol;
+                ColaGenerica<ArbolBinario<Integer>>cola=new ColaGenerica();
+                cola.encolar(this.arb);
+                cola.encolar(null);
+                while((!cola.esVacia())&&(aux<=n)){
+                    arbol=cola.desencolar();
+                    if(arbol!=null){
+                        if(aux==n){
+                            cant+=arbol.getDato();
+                        }
+                        if(arbol.tieneHijoIzquierdo()){
+                            cola.encolar(arbol.getHijoIzquierdo());
+                        }
+                        if(arbol.tieneHijoDerecho()){
+                            cola.encolar(arbol.getHijoDerecho());
+                        }
+                    }else if(!cola.esVacia()){
+                        cola.encolar(null);
+                        aux++;
+                    }
+                }
+            }    
+            return cant;
+	}
 }
