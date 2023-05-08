@@ -33,7 +33,8 @@ public class mainEj3 {
         imprimir(r.numerosImparesMayoresQueInOrden(a, 1));
         imprimir(r.numerosImparesMayoresQuePostOrden(a, 1));
         imprimir(r.numerosImparesMayoresQuePorNiveles(a, 1));*/
-        System.out.println(a.ancho());
+        System.out.println(a.nivel(11));
+        
     }
     
     public static void imprimir(ListaGenerica l){

@@ -94,32 +94,29 @@ public class ArbolGeneral<T> {
 
 	public Integer nivel(T dato) {
             int nivel=0;
-            boolean ok=false;
             ColaGenerica<ArbolGeneral<T>> cola= new ColaGenerica();
             ArbolGeneral<T> arbol_aux;
             cola.encolar(this);
             cola.encolar(null);
-            while ((!cola.esVacia())&&(!ok)) {
+            while (!cola.esVacia()){
                 arbol_aux = cola.desencolar();
-                if(arbol_aux==null){
-                    nivel++;
-                }else if(arbol_aux.getDato()==dato){
-                    ok=true;
-                }else if (arbol_aux.tieneHijos()) {
-                    ListaGenerica<ArbolGeneral<T>> hijos = arbol_aux.getHijos();
-                    hijos.comenzar();
-                    while (!hijos.fin()) {
-                        cola.encolar(hijos.proximo());
+                if(arbol_aux!=null){
+                    if(arbol_aux.getDato()==dato){
+                        return nivel;
+                    }else if (arbol_aux.tieneHijos()) {
+                        ListaGenerica<ArbolGeneral<T>> hijos = arbol_aux.getHijos();
+                        hijos.comenzar();
+                        while (!hijos.fin()) {
+                            cola.encolar(hijos.proximo());
+                        }
                     }
+                }else if(!cola.esVacia()){
+                    nivel++;
                     cola.encolar(null);
                 }
             }
-            if(ok){
-                return nivel;
-            }else{
-                return -1;
-            }
-	}
+            return -1;
+        }
 
 	public Integer ancho() {
             int max=-1;
@@ -130,10 +127,7 @@ public class ArbolGeneral<T> {
             cola.encolar(null);
             while (!cola.esVacia()) {
                 arbol_aux = cola.desencolar();
-                if(arbol_aux==null){
-                    max=Math.max(max, cant);
-                    cant=0;
-                }else{
+                if(arbol_aux!=null){
                     cant++;
                     if (arbol_aux.tieneHijos()) {
                         ListaGenerica<ArbolGeneral<T>> hijos = arbol_aux.getHijos();
@@ -141,6 +135,11 @@ public class ArbolGeneral<T> {
                         while (!hijos.fin()) {
                             cola.encolar(hijos.proximo());
                         }
+                    }
+                }else{
+                    max=Math.max(max, cant);
+                    if(!cola.esVacia()){
+                        cant=0;
                         cola.encolar(null);
                     }
                 }

@@ -30,10 +30,11 @@ public class mainEj5 {
         hijos.agregarFinal(a1);
         hijos.agregarFinal(a2);
         hijos.agregarFinal(a3);
-        area=new AreaEmpresa("heaughsb", 2);
+        area=new AreaEmpresa("heaughsb", 7);
         ArbolGeneral<AreaEmpresa> a = new ArbolGeneral(area, hijos);
         AnalizadorArbol anal=new AnalizadorArbol();
         System.out.println(anal.devolverMaximoPromedio(a));
+        
     }
     
 }

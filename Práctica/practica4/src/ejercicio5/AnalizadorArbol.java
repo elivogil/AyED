@@ -24,12 +24,7 @@ public class AnalizadorArbol {
         cola.encolar(null);
         while (!cola.esVacia()) {
             arbol_aux = cola.desencolar();
-            if(arbol_aux==null){
-                int prom=total/cant;
-                max=Math.max(max, prom);
-                cant=0;
-                total=0;
-            }else{
+            if(arbol_aux!=null){
                 cant++;
                 total+=arbol_aux.getDato().getRetardo();
                 if (arbol_aux.tieneHijos()) {
@@ -38,7 +33,14 @@ public class AnalizadorArbol {
                     while (!hijos.fin()) {
                         cola.encolar(hijos.proximo());
                     }
+                }
+            }else{
+                int prom=total/cant;
+                max=Math.max(max, prom);
+                if(!cola.esVacia()){
                     cola.encolar(null);
+                    cant=0;
+                    total=0;
                 }
             }
         }
